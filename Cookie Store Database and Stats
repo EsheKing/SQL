@@ -1,0 +1,32 @@
+--Create a cookie store database.
+
+CREATE TABLE cookies (id INTEGER PRIMARY KEY, flavor TEXT, batches_perday INTEGER, orders_perday INTEGER, price INTEGER, rating INTEGER);
+
+INSERT INTO cookies VALUES (1, "sugar",30,250,3.00,8);
+INSERT INTO cookies VALUES (2,"choclate chip",35,375,3.00,10);
+INSERT INTO cookies VALUES (3,"peanut butter",15,200,3.00,6);
+INSERT INTO cookies VALUES (4,"red velvet",30,200,5.00,8);
+INSERT INTO cookies VALUES (5,"cake batter",50,350,4.00,10);
+INSERT INTO cookies VALUES (6,"mint choclate",10,100,3.00,5);
+INSERT INTO cookies VALUES (7, "dark choclate",6,75,5.00,2);
+INSERT INTO cookies VALUES (8,"coffee",7,90,3.00,5);
+INSERT INTO cookies VALUES (9,"toffee",7,90,3.00,5);
+INSERT INTO cookies VALUES (10,"cotton candy",4,80,4.00,5);
+INSERT INTO cookies VALUES (11,"banana nut",25,100,5.00,10);
+INSERT INTO cookies VALUES (12,"blueberry",10,125,4.00,8);
+INSERT INTO cookies VALUES (13,"pumpkin",15,150,4.00,7);
+INSERT INTO cookies VALUES (14,"brownie",20,220,5.00,10);
+INSERT INTO cookies VALUES (15,"carrot",5,70,4.00,3);
+
+--display the database ordered by price.
+SELECT * FROM cookies 
+ORDER BY price;
+
+--what flavor of cookies are rated higher than 7?
+SELECT * FROM cookies 
+WHERE rating > 7
+LIMIT 5;
+
+--what is the total amount of cookies made?
+SELECT SUM (orders_perday) 
+FROM cookies;

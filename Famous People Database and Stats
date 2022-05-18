@@ -1,0 +1,59 @@
+--Create a famous people database 
+
+CREATE TABLE artists (id INTEGER PRIMARY KEY, name INTEGER, age INTEGER, born TEXT);
+
+INSERT INTO artists VALUES ("1","Britney Spears","40","Missippi");
+INSERT INTO artists VALUES ("2","Drake","35","Canada");
+INSERT INTO artists VALUES ("3","Kanye West","44","Georgia");
+INSERT INTO artists VALUES ("4","Erykah Badu","51","Texas");
+INSERT INTO artists VALUES ("5","Janet Jackson","56","Indiana");
+INSERT INTO artists VALUES ("6","Katy Perry","37","California");
+INSERT INTO artists VALUES ("7","Lady Gaga","36","New York");
+INSERT INTO artists VALUES ("8","Eminem","49","Missouri");
+INSERT INTO artists VALUES ("9","Justin Timberlake","41","Tennessee");
+INSERT INTO artists VALUES ("10","J Cole","37","Germany");
+INSERT INTO artists VALUES ("11","Pharrell","49","Virginia");
+INSERT INTO artists VALUES ("12","Nicki Minaj","39","Trinidad");
+INSERT INTO artists VALUES ("13","Lil Wayne","39","Louisiana");
+INSERT INTO artists VALUES ("14","Jay-Z","52","New York");
+INSERT INTO artists VALUES ("15","Beyonce","40","Texas");
+
+
+CREATE TABLE albums (id INTEGER PRIMARY KEY, first_album TEXT,album_sales INTEGER,year_released INTEGER);
+
+INSERT INTO albums VALUES ("1","...Baby One More Time","1320000","1999");
+INSERT INTO albums VALUES ("2","So Far Gone","109000","2009");
+INSERT INTO albums VALUES ("3","College Dropout","441000","2004");
+INSERT INTO albums VALUES ("4","Baduizm","7000000","1999");
+INSERT INTO albums VALUES ("5","Janet Jackson","250000","1986");
+INSERT INTO albums VALUES ("6","Katy Hudson","200","2001");
+INSERT INTO albums VALUES ("7","The Fame","4200000","2008");
+INSERT INTO albums VALUES ("8","Infinite","1000","1996");
+INSERT INTO albums VALUES ("9","Justified","439000","2002");
+INSERT INTO albums VALUES ("10","Cole World:Sideline Story","218000","2011");
+INSERT INTO albums VALUES ("11","In My Mind","142000","2006");
+INSERT INTO albums VALUES ("12","Pink Friday","375000","2010");
+INSERT INTO albums VALUES ("13","The Block Is Hot","229500","1999");
+INSERT INTO albums VALUES ("14","Reasonable Doubt","43000","1996");
+INSERT INTO albums VALUES ("15","Dangerously In Love","317000","2003");
+
+
+
+--display the database by each artist's name and where they were born.
+SELECT artists.name,artists.age,artists.born
+FROM artists
+JOIN albums
+ON artists.id=albums.id;
+
+--display the database by each artist's first album and year of release.
+SELECT artists.name,albums.first_album,albums.year_released
+FROM albums
+JOIN artists
+ON artists.id=albums.id;
+
+--display the database by artist's first album and sales order by DESC.
+SELECT artists.name,albums.first_album,albums.album_sales
+FROM albums
+JOIN artists
+ON albums.id=artists.id
+ORDER BY album_sales DESC;
